@@ -72,7 +72,6 @@
 	</changeSet>
 
 
-	<!-- Changeset to insert data into location table -->
 	<changeSet author="Volta" id="4">
 		<insert tableName="location">
 			<column name="id" valueNumeric="1" />
@@ -84,7 +83,6 @@
 		</insert>
 	</changeSet>
 
-	<!-- Changeset to insert data into manager table -->
 	<changeSet author="Volta" id="5">
 		<insert tableName="manager">
 			<column name="id" valueNumeric="1" />
@@ -98,7 +96,6 @@
 		</insert>
 	</changeSet>
 
-	<!-- Changeset to insert data into employee table -->
 	<changeSet author="Volta" id="6">
 		<insert tableName="employee">
 			<column name="id" valueNumeric="1" />
@@ -121,6 +118,9 @@
 			<column name="manager_id" valueNumeric="2" />
 			<column name="worklocation" valueNumeric="2" />
 		</insert>
-	</changeSet>
+	</changeSet> 
+
+<include file="db/liquibase/22_10_2024_II.xml" />
+
 
 </databaseChangeLog>

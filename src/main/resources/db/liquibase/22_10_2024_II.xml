@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd
+						http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-4.1.xsd">
+
+	<changeSet id="1" author="Volta">
+		<createTable tableName="ranger_fromhome">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="range" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="2" author="Volta">
+		<createTable tableName="home_location">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="locationname" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="3" author="Volta">
+		<createTable tableName="travelling_vehicle_types">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="vehicle_types" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="4" author="Volta">
+		<createTable tableName="salary_range">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="salary_ranges" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="5" author="Volta">
+		<createTable tableName="work_location">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="work_locations" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="6" author="Volta">
+		<createTable tableName="school_location">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="school_locations" type="varchar(100)">
+				<constraints nullable="true" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="7" author="Volta">
+		<createTable tableName="contact_details">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="emergency_contact_number" type="varchar(10)">
+				<constraints nullable="false" />
+			</column>
+			<column name="address" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="8" author="Volta">
+		<createTable tableName="mother">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="travelling_vehicle_types" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_vehicle_types"
+					references="travelling_vehicle_types(id)" />
+			</column>
+			<column name="contact_details" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_contact_details"
+					references="contact_details(id)" />
+			</column>
+			<column name="home_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_home_location"
+					references="home_location(id)" />
+			</column>
+			<column name="ranger_fromhome" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_ranger_fromhome"
+					references="ranger_fromhome(id)" />
+			</column>
+			<column name="salary_range" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_salary_range"
+					references="salary_range(id)" />
+			</column>
+			<column name="work_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_mother_work_location"
+					references="work_location(id)" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="9" author="Volta">
+		<createTable tableName="father">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="travelling_vehicle_types" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_father_vehicle_types"
+					references="travelling_vehicle_types(id)" />
+			</column>
+			<column name="contact_details" type="int">
+				<constraints nullable="true"
+					foreignKeyName="fk_father_contact_details"
+					references="contact_details(id)" />
+			</column>
+			<column name="home_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_father_home_location"
+					references="home_location(id)" />
+			</column>
+			<column name="ranger_fromhome" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_father_ranger_fromhome"
+					references="ranger_fromhome(id)" />
+			</column>
+			<column name="salary_range" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_father_salary_range"
+					references="salary_range(id)" />
+			</column>
+			<column name="work_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_father_work_location"
+					references="work_location(id)" />
+			</column>
+		</createTable>
+	</changeSet>
+
+	<changeSet id="10" author="Volta">
+		<createTable tableName="student">
+			<column name="id" type="int">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="name" type="varchar(100)">
+				<constraints nullable="false" />
+			</column>
+			<column name="school_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_school_location"
+					references="school_location(id)" />
+			</column>
+			<column name="travelling_vehicle_types" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_vehicle_types"
+					references="travelling_vehicle_types(id)" />
+			</column>
+			<column name="home_location" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_home_location"
+					references="home_location(id)" />
+			</column>
+			<column name="father_details" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_father_details"
+					references="father(id)" />
+			</column>
+			<column name="mother_details" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_mother_details"
+					references="mother(id)" />
+			</column>
+			<column name="contact_details" type="int">
+				<constraints nullable="true"
+					foreignKeyName="fk_student_contact_details"
+					references="contact_details(id)" />
+			</column>
+			<column name="ranger_fromhome" type="int">
+				<constraints nullable="false"
+					foreignKeyName="fk_student_ranger_fromhome"
+					references="ranger_fromhome(id)" />
+			</column>
+		</createTable>
+	</changeSet>
+
+</databaseChangeLog>

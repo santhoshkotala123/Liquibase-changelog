@@ -150,7 +150,7 @@
 				<constraints nullable="false"
 					foreignKeyName="fk_father_home_location"
 					references="home_location(id)" />
-			</column>   
+			</column>    
 			<column name="ranger_fromhome" type="int">
 				<constraints nullable="false"
 					foreignKeyName="fk_father_ranger_fromhome"

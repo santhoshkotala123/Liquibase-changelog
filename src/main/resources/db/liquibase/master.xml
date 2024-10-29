@@ -95,7 +95,11 @@
 			<column name="worklocation" valueNumeric="2" />
 		</insert>
 	</changeSet>
+<<<<<<< HEAD
     
+=======
+   
+>>>>>>> b0b8208536e64193ce7958750e73d583482ca7a8
 	<changeSet author="Volta" id="6">
 		<insert tableName="employee">
 			<column name="id" valueNumeric="1" />

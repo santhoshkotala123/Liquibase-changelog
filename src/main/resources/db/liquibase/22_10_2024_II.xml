@@ -16,7 +16,7 @@
 				<constraints nullable="false" />
 			</column>
 		</createTable>
-	</changeSet> 
+	</changeSet>  
 
 	<changeSet id="2" author="Volta">
 		<createTable tableName="home_location">
